@@ -8,6 +8,11 @@ public class SubscriptionService {
     long id;
     String name, description;
 
+
+    public SubscriptionService() {
+
+    }
+
     public SubscriptionService(long id) {
         this.id = id;
     }
