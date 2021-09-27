@@ -1,5 +1,6 @@
 package com.etisalat.subscription.controller;
 
+import com.etisalat.subscription.exception.BusinessException;
 import com.etisalat.subscription.model.ServiceClassId;
 import com.etisalat.subscription.model.SubscriptionService;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -17,10 +18,14 @@ public class MainController {
     com.etisalat.subscription.service.SubscriptionService subscriptionService;
 
     @RequestMapping(method = RequestMethod.GET, value = "/getAllowedServices")
-    public List<SubscriptionService> getAllowedServices(@RequestParam(name = "serviceClassId", required = true) long serviceClassId) {
+    public List<SubscriptionService> getAllowedServices(@RequestParam(name = "serviceClassId", required = true) long serviceClassId) throws BusinessException {
         // repo
         subscriptionService= new com.etisalat.subscription.service.SubscriptionService();
-        return subscriptionService.getAllowedServices(serviceClassId);
+       try{
+           return subscriptionService.getAllowedServices(serviceClassId);
+       }catch(BusinessException businessException){
+           throw businessException;
+       }
     }
 
 
