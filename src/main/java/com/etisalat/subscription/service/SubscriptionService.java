@@ -17,12 +17,13 @@ public class SubscriptionService {
     SubscriptionServiceDAO subscriptionServiceDAO;
 
     public List<com.etisalat.subscription.model.SubscriptionService> getAllowedServices(long serviceClassId) throws BusinessException {
+
+
         if(serviceClassId==2095){
             BusinessException businessException = new BusinessException(1,-1,"service is for internal use only!");
             businessException.setDefaultBusinessMessage("Sorry you can't use this service now!");
             throw businessException;
         }
-        subscriptionServiceDAO = SubscriptionServiceDAO.getInstance();
         return subscriptionServiceDAO.getAllowedServices(serviceClassId);
     }
 

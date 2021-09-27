@@ -20,7 +20,6 @@ public class MainController {
     @RequestMapping(method = RequestMethod.GET, value = "/getAllowedServices")
     public List<SubscriptionService> getAllowedServices(@RequestParam(name = "serviceClassId", required = true) long serviceClassId) throws BusinessException {
         // repo
-        subscriptionService= new com.etisalat.subscription.service.SubscriptionService();
        try{
            return subscriptionService.getAllowedServices(serviceClassId);
        }catch(BusinessException businessException){
