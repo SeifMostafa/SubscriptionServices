@@ -1,6 +1,5 @@
 package com.etisalat.subscription.exception;
 
-import com.etisalat.subscription.WebSecurityConfig;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
