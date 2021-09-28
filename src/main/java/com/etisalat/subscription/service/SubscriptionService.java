@@ -1,6 +1,7 @@
 package com.etisalat.subscription.service;
 
 import com.etisalat.subscription.DAO.SubscriptionServiceDAO;
+import com.etisalat.subscription.DTO.Request;
 import com.etisalat.subscription.exception.BusinessException;
 import net.bytebuddy.implementation.bytecode.Throw;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,12 +20,15 @@ public class SubscriptionService {
     public List<com.etisalat.subscription.model.SubscriptionService> getAllowedServices(long serviceClassId) throws BusinessException {
 
 
-        if(serviceClassId==2095){
-            BusinessException businessException = new BusinessException(1,-1,"service is for internal use only!");
+        if (serviceClassId == 2095) {
+            BusinessException businessException = new BusinessException(1, -1, "service is for internal use only!");
             businessException.setDefaultBusinessMessage("Sorry you can't use this service now!");
             throw businessException;
         }
         return subscriptionServiceDAO.getAllowedServices(serviceClassId);
     }
 
+    public boolean processOrder(Request request) {
+        return true;
+    }
 }

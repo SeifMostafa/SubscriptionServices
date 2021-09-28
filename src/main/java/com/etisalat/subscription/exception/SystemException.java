@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import java.io.Serializable;
 
 @ResponseStatus(HttpStatus.NOT_ACCEPTABLE)
-public class SystemException extends Exception implements Serializable {
+public class SystemException extends RuntimeException {
     int action_id;
     int result;
     String reason;
