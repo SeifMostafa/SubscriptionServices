@@ -16,7 +16,7 @@ public class User {
 
     @OneToMany
     @JoinColumn
-    Collection<Interest>interests;
+    Collection<Interest> interests;
 
     @Column
     @Id
@@ -28,6 +28,7 @@ public class User {
         this.age = age;
         this.city = city;
     }
+
     public User() {
     }
 
@@ -67,7 +68,7 @@ public class User {
         return interests;
     }
 
-    public void setInterests(Collection<Interest>  interests) {
+    public void setInterests(Collection<Interest> interests) {
         this.interests = interests;
     }
 

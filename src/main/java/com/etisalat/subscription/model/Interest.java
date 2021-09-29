@@ -17,6 +17,7 @@ public class Interest {
     public Interest(String name) {
         this.name = name;
     }
+
     public Interest() {
     }
 

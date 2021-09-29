@@ -11,6 +11,7 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
+//@RequestMapping("/user") // if all below services should be under specific ..
 public class UserController {
     public final static Logger LOGGER = LoggerFactory.getLogger(UserController.class);
     @Autowired
@@ -36,7 +37,7 @@ public class UserController {
     }
 
 
-    @GetMapping(value = "/user")
+    @GetMapping("/user")
     public void get(@RequestParam(name = "user_id",required = true) long user_id){
         User user =  userService.read(user_id);
         // redirect to user page or build syllabus
