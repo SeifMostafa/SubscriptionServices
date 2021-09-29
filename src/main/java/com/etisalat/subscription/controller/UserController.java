@@ -19,6 +19,7 @@ public class UserController {
 
     @PostMapping( "/createUser")
     public void create(@RequestBody UserDTO userDTO){
+        LOGGER.info("received request: "+userDTO.toString());
         userService.create(userDTO);
        // redirect page to Home
     }
