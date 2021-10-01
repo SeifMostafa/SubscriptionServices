@@ -3,7 +3,6 @@ package com.etisalat.subscription.service;
 import com.google.auth.oauth2.GoogleCredentials;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.FirebaseOptions;
-import javassist.ClassPath;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Service;
 
@@ -12,7 +11,6 @@ import java.io.FileInputStream;
 
 @Service
 public class FBInitialize {
-
     @PostConstruct
     public void initialize() {
         try {
@@ -30,6 +28,5 @@ public class FBInitialize {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
     }
 }

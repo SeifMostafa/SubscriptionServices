@@ -6,12 +6,13 @@ import com.etisalat.subscription.model.Interest;
 import java.util.Arrays;
 
 public class UserDTO {
-    String age, address,name;
+    String  address,name;
     City city;
+    int age;
     Interest[] interests;
 
 
-    public UserDTO(String name,String age, String address, City city, Interest[] interests) {
+    public UserDTO(String name,int age, String address, City city, Interest[] interests) {
         this.name= name;
         this.age = age;
         this.address = address;
@@ -19,11 +20,11 @@ public class UserDTO {
         this.interests = interests;
     }
 
-    public String getAge() {
+    public int getAge() {
         return age;
     }
 
-    public void setAge(String age) {
+    public void setAge(int age) {
         this.age = age;
     }
 

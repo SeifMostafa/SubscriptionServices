@@ -23,23 +23,26 @@ public class UserService implements Service {
     UserDAO userDAO;
 
     @Override
-    public void create(Object user) {
-    //    userDAO.save((UserDTO) user);
-
-
-
-        try {
-
-            final FirebaseDatabase database = FirebaseDatabase.getInstance();
-            DatabaseReference ref = database.getReference("users");
-            DatabaseReference userRef = ref.push();
-            userRef.setValueAsync(user);
-        } catch (Exception ex) {
-            LOGGER.error(ex.getMessage());
-        }
-
-        /// TODO fill missed data from USERDTO to User entity.
+    public void create(Object userDTO_) {
+        UserDTO userDTO = (UserDTO) userDTO_;
+        User user = new User.Builder(userDTO.getName()).
+                city(userDTO.getCity()).address(userDTO.getAddress()).
+                age(userDTO.getAge()).interests(userDTO.getInterests().toString()).build();
+        userDAO.save(user);
     }
+
+//        try {
+//
+//            final FirebaseDatabase database = FirebaseDatabase.getInstance();
+//            DatabaseReference ref = database.getReference("users");
+//            DatabaseReference userRef = ref.push();
+//            userRef.setValueAsync(user);
+//        } catch (Exception ex) {
+//            LOGGER.error(ex.getMessage());
+
+
+    /// TODO fill missed data from USERDTO to User entity.
+
 
     @Override
     public void update(Object user) {
