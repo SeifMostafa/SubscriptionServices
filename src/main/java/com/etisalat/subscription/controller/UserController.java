@@ -7,10 +7,13 @@ import com.etisalat.subscription.service.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.validation.annotation.Validated;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-@RestController
+import java.util.List;
+
+@Controller
 //@RequestMapping("/user") // if all below services should be under specific ..
 public class UserController {
     public final static Logger LOGGER = LoggerFactory.getLogger(UserController.class);
@@ -45,4 +48,19 @@ public class UserController {
         LOGGER.info(user.toString());
     }
 
+    @GetMapping("/all")
+    public String get(Model theModel){
+        List<User> users =  userService.readAll();
+        // redirect to user page or build syllabus
+        LOGGER.info(users.toString());
+        // add the customers to the model
+        theModel.addAttribute("customers",users);
+//        ModelAndView modelAndView = new ModelAndView();
+//        modelAndView.addObject("customers",users);
+//        modelAndView.setViewName("list-customers");
+        //  return "jsp/list-customers";
+        return "thymeleaf/list-customers";
+       // return modelAndView;
+
+    }
 }

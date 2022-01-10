@@ -14,6 +14,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import java.util.List;
+
 @org.springframework.stereotype.Service
 public class UserService implements Service {
     public static final String COL_NAME = "users";
@@ -58,4 +60,7 @@ public class UserService implements Service {
     public User read(long user_id) {
         return userDAO.getById(user_id);
     }
+
+
+    public List<User> readAll(){return userDAO.findAll();}
 }
